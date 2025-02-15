@@ -1,184 +1,99 @@
-# CSS Text Manipulation
+# CSS - Control Image Display
 
-## Introduction
-CSS (Cascading Style Sheets) provides various properties to manipulate text appearance and formatting. These properties help in improving readability, enhancing the design, and controlling how text elements are displayed on a webpage. Below is a detailed breakdown of key CSS text manipulation properties.
+CSS provides powerful properties to control the appearance and behavior of images on a webpage. This guide covers essential properties such as `border`, `height`, `width`, and `moz-opacity`.
 
----
-
-##  Color
-### Definition:
-The `color` property is used to set the color of text in an element. It accepts color values in different formats:
-- Named Colors: `red`, `blue`, `green`
-- HEX Codes: `#ff0000`, `#00ff00`, `#0000ff`
-- RGB: `rgb(255, 0, 0)`
-- RGBA: `rgba(255, 0, 0, 0.5)` (with opacity)
-- HSL: `hsl(0, 100%, 50%)`
-
-### Example:
-```css
-p {
-  color: blue;
-}
-```
-
----
-
-##  Direction
-### Definition:
-The `direction` property specifies the text direction.
-
-### Values:
-- `ltr` (Left-to-Right) - Default
-- `rtl` (Right-to-Left) - Used for languages like Arabic and Hebrew
-
-### Example:
-```css
-div {
-  direction: rtl;
-}
-```
-
----
-
-## Letter Spacing
-### Definition:
-The `letter-spacing` property adjusts the space between characters in text.
-
-### Values:
-- Normal: `letter-spacing: normal;` (default)
-- Specific values: `letter-spacing: 2px;` or `letter-spacing: 0.2em;`
-
-### Example:
-```css
-h1 {
-  letter-spacing: 3px;
-}
-```
-
----
-
-## Word Spacing
-### Definition:
-The `word-spacing` property controls the space between words in a text.
-
-### Example:
-```css
-p {
-  word-spacing: 5px;
-}
-```
-
----
-
-##  Text Indent
-### Definition:
-The `text-indent` property sets the indentation of the first line of a text block.
-
-### Example:
-```css
-p {
-  text-indent: 50px;
-}
-```
-
----
-
-##  Text Align
-### Definition:
-The `text-align` property controls the alignment of text inside an element.
-
-### Values:
-- `left` (default)
-- `right`
-- `center`
-- `justify` (aligns text to both left and right margins)
-
-### Example:
-```css
-div {
-  text-align: center;
-}
-```
-
----
-
-##  Text Decoration
-### Definition:
-The `text-decoration` property adds decorative lines to text.
-
-### Values:
-- `none` (default)
-- `underline`
-- `overline`
-- `line-through`
-- `blink` (not widely supported)
-
-### Example:
-```css
-a {
-  text-decoration: underline;
-}
-```
-
----
-
-##  Text Transform
-### Definition:
-The `text-transform` property modifies the capitalization of text.
-
-### Values:
-- `none` (default)
-- `uppercase`
-- `lowercase`
-- `capitalize`
-
-### Example:
-```css
-h2 {
-  text-transform: uppercase;
-}
-```
-
----
-
-##  White Space
-### Definition:
-The `white-space` property determines how white spaces are handled within an element.
-
-### Values:
-- `normal` (default)
-- `nowrap` (prevents text wrapping)
-- `pre` (preserves spaces and line breaks)
-- `pre-wrap` (preserves spaces but allows wrapping)
-- `pre-line` (collapses spaces but preserves line breaks)
-
-### Example:
-```css
-div {
-  white-space: nowrap;
-}
-```
-
----
-
-##  Text Shadow
-### Definition:
-The `text-shadow` property applies shadow effects to text.
+## 1. Border
+The `border` property allows you to add a border around an image. You can specify the border style, width, and color.
 
 ### Syntax:
 ```css
-text-shadow: h-offset v-offset blur-radius color;
+img {
+  border: 5px solid black;
+}
+```
+
+### Explanation:
+- `5px` → Sets the width of the border.
+- `solid` → Specifies a solid border (other styles include `dotted`, `dashed`, `double`, etc.).
+- `black` → Sets the color of the border.
+
+### Example:
+```html
+<img src="image.jpg" style="border: 3px dashed red;" />
+```
+
+## 2. Height
+The `height` property controls the vertical size of an image.
+
+### Syntax:
+```css
+img {
+  height: 200px;
+}
+```
+
+### Explanation:
+- `200px` → Defines the image height in pixels.
+- Can also use percentages (`50%`), `auto` (keeps aspect ratio), or viewport units (`vh`).
+
+### Example:
+```html
+<img src="image.jpg" style="height: 50%;" />
+```
+
+## 3. Width
+The `width` property sets the horizontal size of an image.
+
+### Syntax:
+```css
+img {
+  width: 300px;
+}
+```
+
+### Explanation:
+- `300px` → Defines the image width in pixels.
+- Can use relative units like `%`, `auto`, or viewport units (`vw`).
+
+### Example:
+```html
+<img src="image.jpg" style="width: 100%;" />
+```
+
+## 4. Moz-Opacity
+The `moz-opacity` property (specific to older Mozilla-based browsers) controls the transparency of an image. This property is now obsolete, but `opacity` is its modern alternative.
+
+### Syntax:
+```css
+img {
+  -moz-opacity: 0.5;
+}
+```
+
+### Explanation:
+- `0.5` → Sets image opacity (1 = fully visible, 0 = fully transparent).
+
+### Modern Alternative:
+```css
+img {
+  opacity: 0.5;
+}
 ```
 
 ### Example:
-```css
-h1 {
-  text-shadow: 2px 2px 5px gray;
-}
+```html
+<img src="image.jpg" style="opacity: 0.7;" />
 ```
 
 ---
 
-## Conclusion
-These CSS properties provide extensive control over text styling and formatting, improving both aesthetics and readability in web design. Mastering these properties helps in creating visually appealing and accessible webpages.
+## Summary
+| Property        | Description                                | Example |
+|---------------|--------------------------------|---------|
+| `border` | Adds a border around the image | `border: 2px solid blue;` |
+| `height` | Sets the image height | `height: 200px;` |
+| `width` | Sets the image width | `width: 300px;` |
+| `moz-opacity` | Controls image transparency (deprecated) | `-moz-opacity: 0.5;` |
+| `opacity` | Modern alternative to `moz-opacity` | `opacity: 0.5;` |
 
+Use these properties to effectively style and control image display in your web projects! 🎨
